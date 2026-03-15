@@ -30,9 +30,9 @@ Esta skill é **agnóstica de agente** e funciona corretamente quando usada em:
 
 | Comando | Descrição |
 |---|---|
-| `generate performance tests from codebase` | Analisa o diretório `/app`, detecta APIs e gera testes para os ambientes `dev` e `hom` |
-| `generate performance tests from gateway contracts` | Analisa arquivos OpenAPI em `/contratos/*.yaml` e gera testes para os ambientes `dev` e `hom` |
-| `generate temporary performance scenario` | Cria interativamente um cenário de performance customizado para ambiente EC2 temporário |
+| `gerar testes de performance a partir do codigo` | Analisa o diretório `/app`, detecta APIs e gera testes para os ambientes `dev` e `hom` |
+| `gerar testes de performance a partir dos contratos` | Analisa arquivos OpenAPI em `/contratos/*.yaml` e gera testes para os ambientes `dev` e `hom` |
+| `gerar cenario de performance temporario` | Cria interativamente um cenário de performance customizado para ambiente EC2 temporário |
 
 ---
 

@@ -43,7 +43,7 @@ test-performance/
 Analisa o diretório `/app`, detecta APIs expostas e gera os artefatos de teste.
 
 ```
-generate performance tests from codebase
+gerar testes de performance a partir do codigo
 ```
 
 Estrutura de projeto esperada:
@@ -58,7 +58,7 @@ Estrutura de projeto esperada:
 Analisa arquivos OpenAPI em `/contratos` e gera os artefatos de teste.
 
 ```
-generate performance tests from gateway contracts
+gerar testes de performance a partir dos contratos
 ```
 
 Estrutura de projeto esperada:
@@ -81,7 +81,7 @@ Cria um cenário customizado de forma interativa, sem execução via pipeline. O
 - Durações de ramp-up, sustentação e ramp-down
 
 ```
-generate temporary performance scenario
+gerar cenario de performance temporario
 ```
 
 ---
