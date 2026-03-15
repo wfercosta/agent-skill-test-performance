@@ -1,0 +1,42 @@
+# Template de Configuração p4all
+# Usado pela skill test-performance para os modos de execução via pipeline (Modo 1 e Modo 2)
+# NÃO usar este arquivo para o Modo 3 (ambiente EC2 temporário)
+#
+# Restrições:
+#   - execution.concurrency máximo: 50
+#   - execution.ramp-up máximo: 2m
+#   - execution.hold-for máximo: 10m
+
+execution:
+  # Número de usuários virtuais (máximo: 50)
+  concurrency: 10
+
+  # Duração do ramp-up (máximo: 2m) — formato: Ns ou Nm
+  ramp-up: 5s
+
+  # Duração da sustentação na carga de pico (máximo: 10m) — formato: Ns, Nm
+  hold-for: 30s
+
+  # Nome do cenário a executar (deve corresponder a uma chave em 'scenarios')
+  scenario: default
+
+scenarios:
+  default:
+    # Caminho para o script JMeter (relativo a este arquivo)
+    script: default.jmx
+
+p4all:
+  limit:
+    # Máximo de requisições por segundo permitido
+    rps: 300
+
+    # Percentual máximo de erros permitido (%)
+    error-percent: 4
+
+    # Limites de tempo de resposta (milissegundos)
+    time:
+      # Limite do tempo de resposta no percentil 90
+      p90: 500
+
+      # Limite do tempo médio de resposta
+      avg: 500

@@ -1,0 +1,51 @@
+# Template de Grafo de Sequência
+# Define a ordem lógica de execução das chamadas de API em um cenário de teste de performance.
+# Usado pela skill test-performance para gerar os arquivos <scenario_name>_graph.yml.
+
+# nodes: lista ordenada de nomes das etapas de API (na sequência de execução)
+nodes:
+  - login
+  - get-products
+  - checkout
+
+# edges: dependências direcionadas entre etapas de API
+# Cada aresta indica que a etapa 'from' deve ser concluída antes de 'to' começar.
+edges:
+  - from: login
+    to: get-products
+  - from: get-products
+    to: checkout
+
+---
+# Exemplo estendido com ramificações (caminhos paralelos)
+#
+# nodes:
+#   - authenticate
+#   - get-user-profile
+#   - get-cart
+#   - get-catalog
+#   - add-to-cart
+#   - place-order
+#
+# edges:
+#   - from: authenticate
+#     to: get-user-profile
+#   - from: authenticate
+#     to: get-cart
+#   - from: authenticate
+#     to: get-catalog
+#   - from: get-cart
+#     to: add-to-cart
+#   - from: get-catalog
+#     to: add-to-cart
+#   - from: add-to-cart
+#     to: place-order
+
+---
+# Regras para geração do graph.yml:
+#
+# 1. Toda API que exige autenticação deve ter uma aresta A PARTIR do nó de auth/login.
+# 2. Toda API que depende de dados de uma resposta anterior deve ter uma aresta A PARTIR dessa API.
+# 3. Os nós são derivados dos nomes lógicos das etapas identificadas durante a análise das APIs.
+# 4. O grafo deve ser um DAG (Directed Acyclic Graph — Grafo Acíclico Dirigido) — ciclos não são permitidos.
+# 5. Use kebab-case para os nomes dos nós (ex.: get-products, add-to-cart).
